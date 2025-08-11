@@ -1,250 +1,98 @@
-/* Grundlegendes Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* Verstecke das Hamburger-Menü standardmäßig */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 25px;
+  position: relative;
+  z-index: 1001;
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.6;
-  background-color: #f5f5f5;
-  color: #333;
-}
-
-/* Container für alle Sektionen */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* Header */
-.site-header {
-  background-color: #1a1a1a;
-  color: white;
-  padding: 1rem 0;
-}
-
-.site-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  color: white;
-}
-
-.brand-logo {
-  height: 40px;
-  margin-right: 10px;
-}
-
-.brand span {
-  font-size: 1.4rem;
-  font-weight: 700;
-}
-
-/* Navigation */
-.nav {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-.nav a:hover,
-.nav a:focus {
-  background-color: #0077cc;
-}
-
-/* Buttons im Nav */
-.nav a.btn {
-  background-color: #0077cc;
-  color: white;
-  padding: 0.5rem 1rem;
-}
-
-.nav a.btn:hover,
-.nav a.btn:focus {
-  background-color: #005fa3;
-}
-
-/* Hero Sektion */
-.hero {
-  background: url('images/hero-bg.jpg') no-repeat center center/cover;
-  color: white;
-  padding: 6rem 0;
-  text-align: center;
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.25rem;
-  margin-bottom: 2rem;
-}
-
-.hero .btn-primary {
-  background-color: #0077cc;
-  color: white;
-  padding: 0.75rem 1.5rem;
-  font-weight: 700;
-  border-radius: 5px;
-  text-decoration: none;
-}
-
-.hero .btn-primary:hover,
-.hero .btn-primary:focus {
-  background-color: #005fa3;
-}
-
-/* Allgemeine Sections */
-.section {
-  padding: 4rem 0;
-  background-color: white;
-  margin-bottom: 2rem;
-  border-radius: 8px;
-}
-
-.section h2 {
-  margin-bottom: 1.5rem;
-  font-size: 2rem;
-  text-align: center;
-}
-
-/* Cards für Leistungen */
-.cards {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  justify-content: center;
-}
-
-.card {
-  background-color: #e9ecef;
-  padding: 1.5rem;
-  border-radius: 8px;
-  flex: 1 1 250px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  text-align: center;
-}
-
-.card h3 {
-  margin-bottom: 0.8rem;
-}
-
-/* Grid für Projekte */
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-.project img {
+/* Hamburger-Striche */
+.nav-toggle .hamburger,
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after {
+  display: block;
+  background-color: #fff;
+  height: 3px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 2px;
+  position: absolute;
+  transition: all 0.3s ease;
 }
 
-.project figcaption {
-  margin-top: 0.5rem;
+.nav-toggle .hamburger {
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.project h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.3rem;
+.nav-toggle .hamburger::before {
+  content: "";
+  top: -10px;
 }
 
-/* Kontaktbereich */
-.contact-list {
-  list-style: none;
-  padding: 0;
-  max-width: 400px;
-  margin: 0 auto;
-  font-size: 1.1rem;
+.nav-toggle .hamburger::after {
+  content: "";
+  top: 10px;
 }
 
-.contact-list li {
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-}
-
-.contact-list strong {
-  width: 90px;
-  color: #333;
-  font-weight: 600;
-}
-
-/* Link Styling */
-.contact-list a {
-  color: #0077cc;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.contact-list a:hover,
-.contact-list a:focus {
-  color: #005fa3;
-  text-decoration: underline;
-}
-
-/* Footer */
-.site-footer {
-  background-color: #1a1a1a;
-  color: white;
-  text-align: center;
-  padding: 1rem 0;
-  font-size: 0.9rem;
-}
-
-/* Responsive Design */
-
-/* Mobile Header Anpassungen */
+/* Mobile Styles */
 @media (max-width: 768px) {
-  .site-header .container {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .nav {
+    display: none;
+    flex-direction: column;
     width: 100%;
-    justify-content: space-around;
-    margin-top: 0.5rem;
+    background-color: #1a1a1a;
+    position: absolute;
+    top: 60px; /* Höhe Header anpassen */
+    left: 0;
+    padding: 1rem 0;
   }
 
   .nav a {
-    flex: 1 1 auto;
+    padding: 0.75rem 1rem;
+    color: white;
+    display: block;
     text-align: center;
-    padding: 0.5rem 0;
   }
 
-  .cards {
-    flex-direction: column;
-  }
-}
+  .nav a.btn {
+    margin: 0.5rem auto 0;
+    width: 90%;
+    max-width: 200px;
 
-/* Für ganz kleine Geräte */
-@media (max-width: 480px) {
-  .hero h1 {
-    font-size: 1.8rem;
+    /* Button-Styling für Mobile */
+    background-color: #0077cc;
+    color: white !important;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+    -webkit-text-fill-color: white; /* iOS Safari Fix */
+    -webkit-tap-highlight-color: transparent;
   }
 
-  .hero p {
-    font-size: 1rem;
+  .nav a.btn:hover,
+  .nav a.btn:focus {
+    background-color: #005fa3;
+    color: white !important;
+    text-decoration: none;
+  }
+
+  .nav-toggle {
+    display: block;
+    color: white;
+  }
+
+  .site-header .container {
+    position: relative;
+  }
+
+  /* Wenn nav aktiv ist (visible) */
+  .nav.nav-active {
+    display: flex;
   }
 }
