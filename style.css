@@ -34,7 +34,7 @@
 .hero .btn-primary:hover,
 .hero .btn-primary:focus {
   background-color: #005fa3;
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
