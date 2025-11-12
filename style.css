@@ -51,9 +51,18 @@ body {
   margin-right: 10px;
 }
 
+/* ✅ FIXED DESKTOP NAV */
 .nav {
   display: flex;
+  align-items: center;   /* ✅ vertical center */
   gap: 1.5rem;
+}
+
+/* ✅ Center nav links + button content */
+.nav a,
+.nav .btn {
+  display: flex;
+  align-items: center;
 }
 
 .nav a {
@@ -152,7 +161,6 @@ body {
   .hero h1 { font-size: 1.8rem; }
   .hero p { font-size: 1rem; }
 }
-
 
 /* --- Section Titles --- */
 .section {
@@ -291,7 +299,10 @@ body {
 
 @media (max-width: 768px) {
   .nav {
-    display: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
     flex-direction: column;
     width: 100%;
     background-color: #1a1a1a;
@@ -299,6 +310,8 @@ body {
     top: 60px;
     left: 0;
     padding: 1rem 0;
+    line-height: 1;
+    padding: 10px 0;
   }
 
   .nav a {
@@ -337,5 +350,5 @@ body {
 }
 
 #slogan {
-    color: #fff
+  color: #fff;
 }
