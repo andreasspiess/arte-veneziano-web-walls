@@ -299,11 +299,11 @@ body {
 
 @media (max-width: 768px) {
   .nav {
-    display: flex;
+    display: none; /* ← Menü standardmäßig ausgeblendet */
+    flex-direction: column;
     align-items: center;
     gap: 20px;
     justify-content: center;
-    flex-direction: column;
     width: 100%;
     background-color: #1a1a1a;
     position: absolute;
@@ -311,7 +311,6 @@ body {
     left: 0;
     padding: 1rem 0;
     line-height: 1;
-    padding: 10px 0;
   }
 
   .nav a {
